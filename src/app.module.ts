@@ -10,11 +10,13 @@ import { AuthModule } from './auth/auth.module';
   imports: [
     TypeOrmModule.forRoot({
       type: 'postgres',
-      host: 'localhost',
-      port: 5432,
-      username: 'postgres',
-      password: 'postgres',
-      database: 'book_management',
+      host: process.env.POSTGRESQL_HOST || 'localhost',
+      port: process.env.POSTGRESQL_PORT
+        ? parseInt(process.env.POSTGRESQL_PORT, 10)
+        : 5432,
+      username: process.env.POSTGRESQL_USERNAME || 'postgres',
+      password: process.env.POSTGRESQL_PASSWORD || 'postgres',
+      database: process.env.POSTGRESQL_NAME || 'book_management',
       entities: ['./dist/**/**.entity{.ts,.js}'],
       synchronize: false,
     }),
