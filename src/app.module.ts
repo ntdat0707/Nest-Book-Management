@@ -19,6 +19,12 @@ import { AuthModule } from './auth/auth.module';
       database: process.env.POSTGRESQL_NAME || 'book_management',
       entities: ['./dist/**/**.entity{.ts,.js}'],
       synchronize: false,
+      migrationsRun: true,
+      logging: true,
+      migrations: ['./dist/migrations/*.js'],
+      cli: {
+        migrationsDir: './migrations',
+      },
     }),
     BookModule,
     CustomerModule,

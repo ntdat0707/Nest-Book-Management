@@ -12,16 +12,16 @@ export class Book {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @Column('string')
+  @Column('varchar')
   code: string;
 
-  @Column('string')
+  @Column('varchar')
   name: string;
 
-  @Column('number')
+  @Column('integer')
   price: number;
 
-  @Column('string', { nullable: true })
+  @Column('varchar', { nullable: true })
   type: string;
 
   @CreateDateColumn({ type: 'timestamptz', default: () => 'CURRENT_TIMESTAMP' })

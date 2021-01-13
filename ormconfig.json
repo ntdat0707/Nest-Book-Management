@@ -1,14 +1,14 @@
 {
   "type": "postgres",
   "host": "localhost",
-  "port": 5435,
+  "port": 5432,
   "username": "postgres",
   "password": "postgres",
   "database": "book_management",
   "entities": ["./dist/**/**.entity{.ts,.js}"],
   "subscribers": ["./dist/**/**.subscriber{.ts,.js}"],
   "synchronize": false,
-  "logging": false,
+  "logging": true,
   "migrationsRun": true,
   "migrations": ["./dist/migrations/*.js"],
   "cli": {

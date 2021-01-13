@@ -12,13 +12,13 @@ export class Customer {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @Column('string')
+  @Column('varchar')
   name: string;
 
-  @Column('string')
+  @Column('varchar')
   email: string;
 
-  @Column('string')
+  @Column('varchar')
   password: string;
 
   @CreateDateColumn({ type: 'timestamptz', default: () => 'CURRENT_TIMESTAMP' })
