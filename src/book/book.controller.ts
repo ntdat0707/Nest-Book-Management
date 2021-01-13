@@ -1,4 +1,16 @@
-import { Controller } from '@nestjs/common';
+import { Body, Controller, Post } from '@nestjs/common';
+import { ApiTags } from '@nestjs/swagger';
+import { CreateBookPipe } from '../lib/validatePipe/book/createBookPipe.class';
+import { BookInput } from './book.dto';
+import { BookService } from './book.service';
 
 @Controller('book')
-export class BookController {}
+@ApiTags('Book')
+export class BookController {
+  constructor(private bookService: BookService) {}
+
+  @Post()
+  async create(@Body(new CreateBookPipe()) bookInput: BookInput) {
+    return await this.bookService.createBook(bookInput);
+  }
+}

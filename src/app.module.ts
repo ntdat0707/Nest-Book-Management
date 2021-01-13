@@ -5,9 +5,11 @@ import { AppService } from './app.service';
 import { BookModule } from './book/book.module';
 import { CustomerModule } from './customer/customer.module';
 import { AuthModule } from './auth/auth.module';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
   imports: [
+    ConfigModule.forRoot(),
     TypeOrmModule.forRoot({
       type: 'postgres',
       host: process.env.POSTGRESQL_HOST || 'localhost',
