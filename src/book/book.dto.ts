@@ -6,7 +6,7 @@ export class BookInput {
   readonly name: string;
 
   @ApiProperty()
-  @IsInt()
+  @IsString()
   readonly code: string;
 
   @ApiProperty()
